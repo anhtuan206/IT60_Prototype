@@ -7,7 +7,7 @@ import ProductCard from '../components/ProductCard';
 import { services } from './Services';
 import { products } from './Products';
 const Home = () => {
-  return <div className="min-h-screen bg-white text-neutral-text flex flex-col">
+  return <div className="min-h-screen bg-white text-amber-800 flex flex-col">
       <Header />
 
       {/* Hero Section */}
@@ -22,7 +22,7 @@ const Home = () => {
           <p className="max-w-2xl text-lg md:text-xl mb-8">
             Trải nghiệm dịch vụ khách sạn thú cưng cao cấp, nơi những người bạn bốn chân được quan tâm như ở nhà.
           </p>
-          <Link to="/booking" className="bg-warm-gold text-white px-8 py-3 rounded-md font-semibold text-lg hover:opacity-90 transition-opacity">
+          <Link to="/booking" className="bg-amber-500 text-white px-8 py-3 rounded-md font-semibold text-lg hover:opacity-90 transition-opacity">
             Đặt Lịch Ngay
           </Link>
         </div>
@@ -37,7 +37,7 @@ const Home = () => {
       </section>
 
       {/* Best-selling Products */}
-      <section className="py-16 bg-accent-beige">
+      <section className="py-16 bg-orange-50">
         <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-10 text-center">
             Sản Phẩm Bán Chạy
@@ -55,7 +55,7 @@ const Home = () => {
             <blockquote className="text-xl italic text-gray-700">
                 "Lần đầu tiên gửi bé Milo ở Pet Hotel mà mình an tâm thực sự. Dịch vụ chuyên nghiệp, các bạn nhân viên nhiệt tình, bé về nhà vui vẻ, khỏe mạnh. Chắc chắn sẽ quay lại!"
             </blockquote>
-            <p className="font-medium mt-6 text-neutral-text">— Chị An, khách hàng hài lòng</p>
+            <p className="font-medium mt-6 text-amber-800">— Chị An, khách hàng hài lòng</p>
         </div>
       </section>
 
