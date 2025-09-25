@@ -6,20 +6,15 @@ import ServiceCard from '../components/ServiceCard';
 import ProductCard from '../components/ProductCard';
 import { services } from './Services';
 import { products } from './Products';
-
 const Home = () => {
-  return (
-    <div className="min-h-screen bg-white text-neutral-text flex flex-col">
+  return <div className="min-h-screen bg-white text-neutral-text flex flex-col">
       <Header />
 
       {/* Hero Section */}
       <section className="relative w-full h-[500px]">
-        <img 
-          // src="https://t4.ftcdn.net/jpg/03/28/88/41/360_F_328884184_zcbmGh4NlFLhrRWj83fTDQsQLYY6bbvQ.jpg" 
-          src="https://www.petsaveorg.com/home-page/banner.jpg" 
-          alt="Happy dog at a pet hotel"
-          className="w-full h-full object-cover"
-        />
+        <img
+      // src="https://t4.ftcdn.net/jpg/03/28/88/41/360_F_328884184_zcbmGh4NlFLhrRWj83fTDQsQLYY6bbvQ.jpg" 
+      src="https://www.petsaveorg.com/home-page/banner.jpg" alt="Happy dog at a pet hotel" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-center text-white p-4">
           <h1 className="text-3xl md:text-5xl font-bold mb-4 text-shadow-lg">
             Chăm Sóc Toàn Diện, Yêu Thương Hết Mực
@@ -65,7 +60,6 @@ const Home = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
 export default Home;

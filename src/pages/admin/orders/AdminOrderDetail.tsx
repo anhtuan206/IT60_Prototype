@@ -4,17 +4,23 @@ import AdminLayout from '../../../components/admin/AdminLayout';
 import Toast from '../../../components/admin/Toast';
 import StatusBadge from '../../../components/admin/StatusBadge';
 import { ChevronLeft, Save } from 'lucide-react';
-
 const AdminOrderDetail = () => {
-  const { id } = useParams<{ id: string }>();
+  const {
+    id
+  } = useParams<{
+    id: string;
+  }>();
   const [showToast, setShowToast] = useState(false);
   const [status, setStatus] = useState('paid');
-
-  const breadcrumbs = [
-    { label: 'Trang chủ', path: '/admin' },
-    { label: 'Đơn hàng', path: '/admin/orders' },
-    { label: `Chi tiết đơn hàng #${id}` },
-  ];
+  const breadcrumbs = [{
+    label: 'Trang chủ',
+    path: '/admin'
+  }, {
+    label: 'Đơn hàng',
+    path: '/admin/orders'
+  }, {
+    label: `Chi tiết đơn hàng #${id}`
+  }];
 
   // Mock data
   const order = {
@@ -25,29 +31,42 @@ const AdminOrderDetail = () => {
       phone: '0987654321',
       address: '123 Đường ABC, Phường XYZ, Quận 1, TP. Hồ Chí Minh'
     },
-    items: [
-      { id: 1, name: 'Thức ăn cho chó', sku: 'FD-001', quantity: 2, price: '550.000₫', total: '1.100.000₫' },
-      { id: 2, name: 'Vòng cổ da', sku: 'AC-034', quantity: 1, price: '250.000₫', total: '250.000₫' },
-    ],
+    items: [{
+      id: 1,
+      name: 'Thức ăn cho chó',
+      sku: 'FD-001',
+      quantity: 2,
+      price: '550.000₫',
+      total: '1.100.000₫'
+    }, {
+      id: 2,
+      name: 'Vòng cổ da',
+      sku: 'AC-034',
+      quantity: 1,
+      price: '250.000₫',
+      total: '250.000₫'
+    }],
     totals: {
       subtotal: '1.350.000₫',
       shipping: '50.000₫',
       tax: '0₫',
       grandTotal: '1.400.000₫'
     },
-    timeline: [
-        { status: 'paid', date: '25/09/2025 10:30', note: 'Khách hàng đã thanh toán qua VNPAY.'},
-        { status: 'pending', date: '25/09/2025 09:15', note: 'Đơn hàng đã được tạo.'}
-    ]
+    timeline: [{
+      status: 'paid',
+      date: '25/09/2025 10:30',
+      note: 'Khách hàng đã thanh toán qua VNPAY.'
+    }, {
+      status: 'pending',
+      date: '25/09/2025 09:15',
+      note: 'Đơn hàng đã được tạo.'
+    }]
   };
-
   const handleStatusUpdate = () => {
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
   };
-
-  return (
-    <AdminLayout title={`Đơn hàng ${order.id}`} breadcrumbs={breadcrumbs}>
+  return <AdminLayout title={`Đơn hàng ${order.id}`} breadcrumbs={breadcrumbs}>
       <div className="mb-4">
         <Link to="/admin/orders" className="flex items-center text-sm text-gray-500 hover:text-black">
             <ChevronLeft size={18} className="mr-1" />
@@ -89,8 +108,7 @@ const AdminOrderDetail = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {order.items.map(item => (
-                            <tr key={item.id} className="border-b">
+                        {order.items.map(item => <tr key={item.id} className="border-b">
                                 <td className="py-3">
                                     <p className="font-medium">{item.name}</p>
                                     <p className="text-sm text-gray-500">SKU: {item.sku}</p>
@@ -98,8 +116,7 @@ const AdminOrderDetail = () => {
                                 <td className="text-right py-3">x{item.quantity}</td>
                                 <td className="text-right py-3">{item.price}</td>
                                 <td className="text-right py-3 font-medium">{item.total}</td>
-                            </tr>
-                        ))}
+                            </tr>)}
                     </tbody>
                 </table>
                 <div className="mt-4 space-y-2 text-right">
@@ -114,8 +131,7 @@ const AdminOrderDetail = () => {
             <div className="bg-white border border-gray-200 rounded-md p-6">
                 <h3 className="text-md font-semibold mb-4">Lịch sử đơn hàng</h3>
                 <div className="space-y-4">
-                    {order.timeline.map((entry, index) => (
-                        <div key={index} className="flex">
+                    {order.timeline.map((entry, index) => <div key={index} className="flex">
                             <div className="mr-4">
                                 <StatusBadge status={entry.status} />
                             </div>
@@ -123,8 +139,7 @@ const AdminOrderDetail = () => {
                                 <p className="font-medium">{entry.note}</p>
                                 <p className="text-sm text-gray-500">{entry.date}</p>
                             </div>
-                        </div>
-                    ))}
+                        </div>)}
                 </div>
             </div>
         </div>
@@ -142,13 +157,9 @@ const AdminOrderDetail = () => {
         </div>
       </div>
 
-      {showToast && (
-        <div className="fixed bottom-4 right-4">
+      {showToast && <div className="fixed bottom-4 right-4">
           <Toast type="success" message="Trạng thái đơn hàng đã được cập nhật" onClose={() => setShowToast(false)} />
-        </div>
-      )}
-    </AdminLayout>
-  );
+        </div>}
+    </AdminLayout>;
 };
-
 export default AdminOrderDetail;

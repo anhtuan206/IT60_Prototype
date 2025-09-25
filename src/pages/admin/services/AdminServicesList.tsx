@@ -131,8 +131,7 @@ const AdminServicesList = () => {
       <DataTable columns={columns} data={services} selectable selectedRows={selectedRows} onSelectRow={handleRowSelect} onSelectAll={handleSelectAll} onRowClick={row => {
       window.location.href = `/admin/services/edit/${row.id}`;
     }} />
-      {selectedRows.length > 0 && (
-        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-white shadow-lg border border-gray-300 rounded-lg p-3 flex items-center space-x-4">
+      {selectedRows.length > 0 && <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-white shadow-lg border border-gray-300 rounded-lg p-3 flex items-center space-x-4">
           <span className="text-sm font-medium">{selectedRows.length} mục đã chọn</span>
           <button className="px-3 py-2 text-sm bg-red-500 text-white rounded-md hover:bg-red-600">
             Xóa đã chọn
@@ -140,8 +139,7 @@ const AdminServicesList = () => {
           <button className="px-3 py-2 text-sm bg-primary-blue text-white rounded-md hover:opacity-90">
             Thay đổi trạng thái
           </button>
-        </div>
-      )}
+        </div>}
       <ConfirmModal isOpen={deleteModalOpen} onClose={() => setDeleteModalOpen(false)} onConfirm={handleDelete} title="Xác nhận xóa" message={`Bạn có chắc chắn muốn xóa dịch vụ "${selectedService?.name || ''}"? Hành động này không thể hoàn tác.`} />
     </AdminLayout>;
 };

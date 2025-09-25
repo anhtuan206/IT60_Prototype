@@ -5,28 +5,30 @@ import Footer from '../components/Footer';
 import { ChevronDown } from 'lucide-react';
 import { services } from './Services'; // Import the services data
 
-const AccordionItem = ({ title, children }: { title: string, children: React.ReactNode }) => {
+const AccordionItem = ({
+  title,
+  children
+}: {
+  title: string;
+  children: React.ReactNode;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className="border border-gray-200 rounded-md">
-      <button 
-        className="w-full flex justify-between items-center p-4 text-left font-medium text-neutral-text" 
-        onClick={() => setIsOpen(!isOpen)}
-      >
+  return <div className="border border-gray-200 rounded-md">
+      <button className="w-full flex justify-between items-center p-4 text-left font-medium text-neutral-text" onClick={() => setIsOpen(!isOpen)}>
         <span>{title}</span>
         <ChevronDown className={`h-5 w-5 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
-      {isOpen && (
-        <div className="p-4 border-t border-gray-200 text-gray-700">
+      {isOpen && <div className="p-4 border-t border-gray-200 text-gray-700">
           {children}
-        </div>
-      )}
-    </div>
-  );
-}
-
+        </div>}
+    </div>;
+};
 const ServiceDetail = () => {
-  const { id } = useParams<{ id: string }>();
+  const {
+    id
+  } = useParams<{
+    id: string;
+  }>();
   const service = services.find(s => s.id === id); // Find the service by id
 
   if (!service) {
@@ -39,19 +41,13 @@ const ServiceDetail = () => {
       <Footer />
     </div>;
   }
-
-  return (
-    <div className="min-h-screen bg-white text-neutral-text flex flex-col">
+  return <div className="min-h-screen bg-white text-neutral-text flex flex-col">
       <Header />
       <main className="container mx-auto px-4 py-8 flex-grow">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Image */}
           <div>
-            <img 
-              src={service.image || `https://placehold.co/800x600?text=${service.title}`}
-              alt={service.title}
-              className="w-full h-auto rounded-lg shadow-md"
-            />
+            <img src={service.image || `https://placehold.co/800x600?text=${service.title}`} alt={service.title} className="w-full h-auto rounded-lg shadow-md" />
           </div>
 
           {/* Right Column - Content */}
@@ -86,7 +82,6 @@ const ServiceDetail = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
 export default ServiceDetail;

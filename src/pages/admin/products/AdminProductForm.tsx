@@ -3,20 +3,24 @@ import { useParams, Link } from 'react-router-dom';
 import AdminLayout from '../../../components/admin/AdminLayout';
 import Toast from '../../../components/admin/Toast';
 import { Save, X, Upload } from 'lucide-react';
-
 const AdminProductForm = () => {
-  const { id } = useParams<{ id: string }>();
+  const {
+    id
+  } = useParams<{
+    id: string;
+  }>();
   const isEditMode = id !== 'new';
   const [showToast, setShowToast] = useState(false);
-
-  const breadcrumbs = [
-    { label: 'Trang chủ', path: '/admin' },
-    { label: 'Sản phẩm', path: '/admin/products' },
-    {
-      label: isEditMode ? 'Chỉnh sửa sản phẩm' : 'Thêm sản phẩm mới',
-      path: isEditMode ? `/admin/products/edit/${id}` : '/admin/products/new'
-    }
-  ];
+  const breadcrumbs = [{
+    label: 'Trang chủ',
+    path: '/admin'
+  }, {
+    label: 'Sản phẩm',
+    path: '/admin/products'
+  }, {
+    label: isEditMode ? 'Chỉnh sửa sản phẩm' : 'Thêm sản phẩm mới',
+    path: isEditMode ? `/admin/products/edit/${id}` : '/admin/products/new'
+  }];
 
   // Mock data for edit mode
   const productData = isEditMode ? {
@@ -38,7 +42,6 @@ const AdminProductForm = () => {
     status: 'draft',
     images: []
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setShowToast(true);
@@ -47,9 +50,7 @@ const AdminProductForm = () => {
       window.location.href = '/admin/products';
     }, 2000);
   };
-
-  return (
-    <AdminLayout title={isEditMode ? 'Chỉnh Sửa Sản Phẩm' : 'Thêm Sản Phẩm Mới'} breadcrumbs={breadcrumbs}>
+  return <AdminLayout title={isEditMode ? 'Chỉnh Sửa Sản Phẩm' : 'Thêm Sản Phẩm Mới'} breadcrumbs={breadcrumbs}>
       <form onSubmit={handleSubmit} className="bg-white rounded-md border border-gray-200 p-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Left Column (2/3 width) */}
@@ -65,9 +66,7 @@ const AdminProductForm = () => {
             <div>
                 <h3 className="block mb-2 font-medium">Hình ảnh sản phẩm</h3>
                 <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
-                    {productData.images.map((img, i) => (
-                        <img key={i} src={img} alt={`Product image ${i+1}`} className="w-full h-24 object-cover rounded-md" />
-                    ))}
+                    {productData.images.map((img, i) => <img key={i} src={img} alt={`Product image ${i + 1}`} className="w-full h-24 object-cover rounded-md" />)}
                      <div className="w-full h-24 border-2 border-dashed border-gray-300 rounded-md flex flex-col items-center justify-center text-gray-500 hover:bg-gray-50 cursor-pointer">
                         <Upload size={24} />
                         <span className="text-xs mt-1">Tải lên</span>
@@ -127,17 +126,9 @@ const AdminProductForm = () => {
         </div>
       </form>
 
-      {showToast && (
-        <div className="fixed bottom-4 right-4">
-          <Toast
-            type="success"
-            message={`Sản phẩm đã được ${isEditMode ? 'cập nhật' : 'tạo'} thành công`}
-            onClose={() => setShowToast(false)}
-          />
-        </div>
-      )}
-    </AdminLayout>
-  );
+      {showToast && <div className="fixed bottom-4 right-4">
+          <Toast type="success" message={`Sản phẩm đã được ${isEditMode ? 'cập nhật' : 'tạo'} thành công`} onClose={() => setShowToast(false)} />
+        </div>}
+    </AdminLayout>;
 };
-
 export default AdminProductForm;

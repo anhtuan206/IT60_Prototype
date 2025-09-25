@@ -4,36 +4,30 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ShoppingCart } from 'lucide-react';
 import { products } from './Products';
-
 const ProductDetail = () => {
-  const { id } = useParams<{ id: string }>();
+  const {
+    id
+  } = useParams<{
+    id: string;
+  }>();
   const product = products.find(p => p.id === id);
-
   if (!product) {
-    return (
-      <div className="min-h-screen bg-white text-neutral-text flex flex-col">
+    return <div className="min-h-screen bg-white text-neutral-text flex flex-col">
         <Header />
         <main className="container mx-auto px-4 py-8 flex-grow">
           <h1 className="text-3xl font-bold mb-8">Sản phẩm không tìm thấy</h1>
           <p>Rất tiếc, sản phẩm bạn đang tìm kiếm không tồn tại.</p>
         </main>
         <Footer />
-      </div>
-    );
+      </div>;
   }
-
-  return (
-    <div className="min-h-screen bg-white text-neutral-text flex flex-col">
+  return <div className="min-h-screen bg-white text-neutral-text flex flex-col">
       <Header />
       <main className="container mx-auto px-4 py-8 flex-grow">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Image */}
           <div>
-            <img 
-              src={product.image || `https://placehold.co/600x600?text=Product+${id}`}
-              alt={product.title}
-              className="w-full h-auto rounded-lg shadow-md"
-            />
+            <img src={product.image || `https://placehold.co/600x600?text=Product+${id}`} alt={product.title} className="w-full h-auto rounded-lg shadow-md" />
           </div>
 
           {/* Right Column - Content */}
@@ -69,7 +63,6 @@ const ProductDetail = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
 export default ProductDetail;

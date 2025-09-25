@@ -2,16 +2,22 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Trash2, Plus, Minus } from 'lucide-react';
-
 const Cart = () => {
   // Mock cart items
-  const cartItems = [
-    { id: 1, name: 'Khăn Tắm Siêu Thấm Hút', price: '50.000₫', quantity: 2, image: 'https://paddy.vn/cdn/shop/files/khan-tam-cho-meo-sieu-tham-hut.jpg?v=1692494975' },
-    { id: 2, name: 'Xịt Khử Mùi & Khử Trùng Chuồng Nuôi (Pet-Safe)', price: '200.000₫', quantity: 2, image: 'https://fuwa.com.vn/wp-content/uploads/2024/02/xit-khu-mui-da-nang-31.jpg' },
-  ];
-
-  return (
-    <div className="min-h-screen bg-white text-neutral-text flex flex-col">
+  const cartItems = [{
+    id: 1,
+    name: 'Khăn Tắm Siêu Thấm Hút',
+    price: '50.000₫',
+    quantity: 2,
+    image: 'https://paddy.vn/cdn/shop/files/khan-tam-cho-meo-sieu-tham-hut.jpg?v=1692494975'
+  }, {
+    id: 2,
+    name: 'Xịt Khử Mùi & Khử Trùng Chuồng Nuôi (Pet-Safe)',
+    price: '200.000₫',
+    quantity: 2,
+    image: 'https://fuwa.com.vn/wp-content/uploads/2024/02/xit-khu-mui-da-nang-31.jpg'
+  }];
+  return <div className="min-h-screen bg-white text-neutral-text flex flex-col">
       <Header />
       <main className="container mx-auto px-4 py-8 flex-grow">
         <h1 className="text-3xl font-bold mb-8 text-neutral-text">Giỏ Hàng Của Bạn</h1>
@@ -19,8 +25,7 @@ const Cart = () => {
           {/* Left Column - Cart Items */}
           <div className="lg:col-span-2">
             <div className="bg-white border border-gray-200 rounded-md">
-              {cartItems.map((item, index) => (
-                <div key={item.id} className={`p-4 flex items-center ${index < cartItems.length - 1 ? 'border-b border-gray-200' : ''}`}>
+              {cartItems.map((item, index) => <div key={item.id} className={`p-4 flex items-center ${index < cartItems.length - 1 ? 'border-b border-gray-200' : ''}`}>
                   <img src={item.image} alt={item.name} className="w-24 h-24 rounded-md object-cover" />
                   <div className="ml-4 flex-grow">
                     <div className="flex justify-between">
@@ -40,8 +45,7 @@ const Cart = () => {
                       </button>
                     </div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
             <div className="mt-6">
               <div className="bg-accent-beige p-4 rounded-md">
@@ -83,7 +87,6 @@ const Cart = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
 export default Cart;
