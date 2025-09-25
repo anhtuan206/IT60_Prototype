@@ -1,57 +1,118 @@
-import React, { useState } from 'react';
-import { MenuIcon, XIcon } from 'lucide-react';
-export function Header() {
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { ShoppingCart, ChevronDown, Menu, X } from 'lucide-react';
+
+const Header = () => {
+  const location = useLocation();
+  const isAccountOrCart = location.pathname === '/account' || location.pathname === '/cart' || location.pathname === '/orders' || location.pathname === '/bookings' || location.pathname === '/pets';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  return <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-          <div className="h-10 w-10 bg-amber-500 rounded-full flex items-center justify-center">
-            <span className="text-white font-bold text-lg">PH</span>
-          </div>
-          <h1 className="text-xl font-bold text-amber-600">PawsResort</h1>
-        </div>
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          <a href="#" className="text-gray-700 hover:text-amber-600 transition-colors">
-            Home
-          </a>
-          <a href="#services" className="text-gray-700 hover:text-amber-600 transition-colors">
-            Services
-          </a>
-          <a href="#testimonials" className="text-gray-700 hover:text-amber-600 transition-colors">
-            Testimonials
-          </a>
-          <a href="#contact" className="text-gray-700 hover:text-amber-600 transition-colors">
-            Contact
-          </a>
-          <button className="bg-amber-600 text-white px-4 py-2 rounded-md hover:bg-amber-700 transition-colors">
-            Book Now
-          </button>
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const profileMenuRef = useRef<HTMLDivElement>(null);
+
+  const navLinks = (
+    <>
+      <Link to="/services" className="text-neutral-text hover:text-warm-brown transition-colors block md:inline-block py-2 md:py-0">Dịch Vụ</Link>
+      <Link to="/products" className="text-neutral-text hover:text-warm-brown transition-colors block md:inline-block py-2 md:py-0">Sản Phẩm</Link>
+      <Link to="/booking" className="text-neutral-text hover:text-warm-brown transition-colors block md:inline-block py-2 md:py-0">Đặt Lịch</Link>
+      <Link to="/contact" className="text-neutral-text hover:text-warm-brown transition-colors block md:inline-block py-2 md:py-0">Liên Hệ</Link>
+    </>
+  );
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (profileMenuRef.current && !profileMenuRef.current.contains(event.target as Node)) {
+        setIsProfileMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [profileMenuRef]);
+
+  return (
+    <header className="bg-white w-full py-4 relative shadow-sm">
+      <div className="container mx-auto px-4 flex justify-between items-center">
+        <Link to="/" className="font-bold text-2xl z-20 text-neutral-text">
+          PET HOTEL
+        </Link>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex space-x-6">
+          {navLinks}
         </nav>
-        {/* Mobile Menu Button */}
-        <button className="md:hidden text-gray-700" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
-        </button>
+
+        <div className="flex items-center space-x-4 z-20">
+          <Link to="/cart" className="p-1 text-neutral-text">
+            <ShoppingCart className="h-5 w-5" />
+          </Link>
+
+          {isAccountOrCart ? (
+            <div className="relative" ref={profileMenuRef}>
+              <button onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)} className="flex items-center space-x-1 text-neutral-text">
+                <img src="https://ui-avatars.com/api/?name=Nguyen+Van+A&background=A0522D&color=fff&size=32" alt="User Avatar" className="w-8 h-8 rounded-full" />
+                <ChevronDown className={`h-4 w-4 transition-transform ${isProfileMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isProfileMenuOpen && (
+                <div className="absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                  <div className="py-3 px-4 border-b border-gray-200">
+                    <p className="font-medium text-neutral-text">Nguyễn Văn A</p>
+                    <p className="text-sm text-gray-500">nguyenvana@email.com</p>
+                  </div>
+                  <div className="py-1">
+                    <Link to="/account" className="block px-4 py-2 text-neutral-text hover:bg-accent-beige" onClick={() => setIsProfileMenuOpen(false)}>Tài khoản của tôi</Link>
+                    <Link to="/orders" className="block px-4 py-2 text-neutral-text hover:bg-accent-beige" onClick={() => setIsProfileMenuOpen(false)}>Đơn hàng</Link>
+                    <Link to="/bookings" className="block px-4 py-2 text-neutral-text hover:bg-accent-beige" onClick={() => setIsProfileMenuOpen(false)}>Lịch hẹn</Link>
+                    <Link to="/pets" className="block px-4 py-2 text-neutral-text hover:bg-accent-beige" onClick={() => setIsProfileMenuOpen(false)}>Thú cưng của tôi</Link>
+                  </div>
+                  <div className="py-1 border-t border-gray-200">
+                    <Link to="/" className="block px-4 py-2 text-neutral-text hover:bg-accent-beige" onClick={() => setIsProfileMenuOpen(false)}>Đăng xuất</Link>
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="hidden sm:flex items-center space-x-2">
+              <Link to="/login" className="border border-warm-gold text-warm-gold px-4 py-2 rounded-md text-sm font-medium hover:bg-warm-gold hover:text-white transition-colors">Đăng Nhập</Link>
+              <Link to="/signup" className="bg-warm-gold text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-opacity">Đăng Ký</Link>
+            </div>
+          )}
+
+          {/* Mobile Menu Button */}
+          <button className="md:hidden p-1 text-neutral-text" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
-      {/* Mobile Navigation */}
-      {isMenuOpen && <div className="md:hidden bg-white py-4 px-4 shadow-md">
-          <nav className="flex flex-col space-y-4">
-            <a href="#" className="text-gray-700 hover:text-amber-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
-              Home
-            </a>
-            <a href="#services" className="text-gray-700 hover:text-amber-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
-              Services
-            </a>
-            <a href="#testimonials" className="text-gray-700 hover:text-amber-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
-              Testimonials
-            </a>
-            <a href="#contact" className="text-gray-700 hover:text-amber-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
-              Contact
-            </a>
-            <button className="bg-amber-600 text-white px-4 py-2 rounded-md hover:bg-amber-700 transition-colors w-full">
-              Book Now
-            </button>
-          </nav>
-        </div>}
-    </header>;
-}
+
+      {/* Mobile Nav */}
+      {isMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 z-10">
+            <nav className="container mx-auto px-4 pt-2 pb-4 flex flex-col space-y-2">
+                {navLinks}
+                <div className="sm:hidden pt-4 border-t border-gray-200">
+                  {isAccountOrCart ? (
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-3 px-2">
+                        <img src="https://ui-avatars.com/api/?name=Nguyen+Van+A&background=A0522D&color=fff&size=40" alt="User Avatar" className="w-10 h-10 rounded-full" />
+                        <div>
+                          <p className="font-medium text-neutral-text">Nguyễn Văn A</p>
+                          <Link to="/account" className="text-sm text-warm-brown hover:underline">Xem tài khoản</Link>
+                        </div>
+                      </div>
+                      <Link to="/" className="block border border-gray-300 text-neutral-text py-2 text-center rounded-md">Đăng Xuất</Link>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col space-y-2">
+                      <Link to="/login" className="border border-warm-gold text-warm-gold py-2 text-center rounded-md">Đăng Nhập</Link>
+                      <Link to="/signup" className="bg-warm-gold text-white py-2 text-center rounded-md">Đăng Ký</Link>
+                    </div>
+                  )}
+                </div>
+            </nav>
+        </div>
+      )}
+    </header>
+  );
+};
+export default Header;
