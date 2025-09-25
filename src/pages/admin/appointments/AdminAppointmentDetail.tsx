@@ -4,38 +4,53 @@ import AdminLayout from '../../../components/admin/AdminLayout';
 import Toast from '../../../components/admin/Toast';
 import StatusBadge from '../../../components/admin/StatusBadge';
 import { ChevronLeft, Save, Check, X } from 'lucide-react';
-
 const AdminAppointmentDetail = () => {
-  const { id } = useParams<{ id: string }>();
+  const {
+    id
+  } = useParams<{
+    id: string;
+  }>();
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
-
-  const breadcrumbs = [
-    { label: 'Trang chủ', path: '/admin' },
-    { label: 'Lịch hẹn', path: '/admin/appointments' },
-    { label: `Chi tiết lịch hẹn #A-${id}` },
-  ];
+  const breadcrumbs = [{
+    label: 'Trang chủ',
+    path: '/admin'
+  }, {
+    label: 'Lịch hẹn',
+    path: '/admin/appointments'
+  }, {
+    label: `Chi tiết lịch hẹn #A-${id}`
+  }];
 
   // Mock data
   const appointment = {
     id: `#A-${id}`,
     status: 'requested',
-    customer: { name: 'Nguyễn Văn An', email: 'nguyenvana@email.com', phone: '0987654321' },
-    pet: { name: 'KiKi', type: 'Chó Poodle', age: '2 tuổi', gender: 'Cái' },
-    service: { name: 'Lưu trú cao cấp', price: '350.000₫' },
+    customer: {
+      name: 'Nguyễn Văn An',
+      email: 'nguyenvana@email.com',
+      phone: '0987654321'
+    },
+    pet: {
+      name: 'KiKi',
+      type: 'Chó Poodle',
+      age: '2 tuổi',
+      gender: 'Cái'
+    },
+    service: {
+      name: 'Lưu trú cao cấp',
+      price: '350.000₫'
+    },
     datetime: '27/09/2025 10:00',
     staff: 'unassigned',
     notes: 'Khách hàng yêu cầu phòng có cửa sổ.'
   };
-
   const handleAction = (message: string) => {
     setToastMessage(message);
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
   };
-
-  return (
-    <AdminLayout title={`Lịch hẹn ${appointment.id}`} breadcrumbs={breadcrumbs}>
+  return <AdminLayout title={`Lịch hẹn ${appointment.id}`} breadcrumbs={breadcrumbs}>
       <div className="mb-4">
         <Link to="/admin/appointments" className="flex items-center text-sm text-gray-500 hover:text-black">
             <ChevronLeft size={18} className="mr-1" />
@@ -114,13 +129,9 @@ const AdminAppointmentDetail = () => {
         </div>
       </div>
 
-      {showToast && (
-        <div className="fixed bottom-4 right-4">
+      {showToast && <div className="fixed bottom-4 right-4">
           <Toast type="success" message={toastMessage} onClose={() => setShowToast(false)} />
-        </div>
-      )}
-    </AdminLayout>
-  );
+        </div>}
+    </AdminLayout>;
 };
-
 export default AdminAppointmentDetail;

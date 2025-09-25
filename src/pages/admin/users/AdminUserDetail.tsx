@@ -3,20 +3,24 @@ import { useParams, Link } from 'react-router-dom';
 import AdminLayout from '../../../components/admin/AdminLayout';
 import Toast from '../../../components/admin/Toast';
 import { Save, X, KeyRound } from 'lucide-react';
-
 const AdminUserDetail = () => {
-  const { id } = useParams<{ id: string }>();
+  const {
+    id
+  } = useParams<{
+    id: string;
+  }>();
   const isEditMode = id !== 'new';
   const [showToast, setShowToast] = useState(false);
-
-  const breadcrumbs = [
-    { label: 'Trang chủ', path: '/admin' },
-    { label: 'Người dùng', path: '/admin/users' },
-    {
-      label: isEditMode ? 'Chỉnh sửa người dùng' : 'Thêm người dùng mới',
-      path: isEditMode ? `/admin/users/edit/${id}` : '/admin/users/new'
-    }
-  ];
+  const breadcrumbs = [{
+    label: 'Trang chủ',
+    path: '/admin'
+  }, {
+    label: 'Người dùng',
+    path: '/admin/users'
+  }, {
+    label: isEditMode ? 'Chỉnh sửa người dùng' : 'Thêm người dùng mới',
+    path: isEditMode ? `/admin/users/edit/${id}` : '/admin/users/new'
+  }];
 
   // Mock data for edit mode
   const userData = isEditMode ? {
@@ -32,7 +36,6 @@ const AdminUserDetail = () => {
     role: 'customer',
     status: 'active'
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setShowToast(true);
@@ -41,9 +44,7 @@ const AdminUserDetail = () => {
       window.location.href = '/admin/users';
     }, 2000);
   };
-
-  return (
-    <AdminLayout title={isEditMode ? 'Chỉnh Sửa Người Dùng' : 'Thêm Người Dùng Mới'} breadcrumbs={breadcrumbs}>
+  return <AdminLayout title={isEditMode ? 'Chỉnh Sửa Người Dùng' : 'Thêm Người Dùng Mới'} breadcrumbs={breadcrumbs}>
       <form onSubmit={handleSubmit} className="bg-white rounded-md border border-gray-200 p-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-1 flex flex-col items-center">
@@ -108,17 +109,9 @@ const AdminUserDetail = () => {
         </div>
       </form>
 
-      {showToast && (
-        <div className="fixed bottom-4 right-4">
-          <Toast
-            type="success"
-            message={`Người dùng đã được ${isEditMode ? 'cập nhật' : 'tạo'} thành công`}
-            onClose={() => setShowToast(false)}
-          />
-        </div>
-      )}
-    </AdminLayout>
-  );
+      {showToast && <div className="fixed bottom-4 right-4">
+          <Toast type="success" message={`Người dùng đã được ${isEditMode ? 'cập nhật' : 'tạo'} thành công`} onClose={() => setShowToast(false)} />
+        </div>}
+    </AdminLayout>;
 };
-
 export default AdminUserDetail;

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Search, Bell, ChevronDown, Menu } from 'lucide-react';
-
 interface AdminTopbarProps {
   title: string;
   onMenuClick: () => void;
 }
-
-const AdminTopbar: React.FC<AdminTopbarProps> = ({ title, onMenuClick }) => {
-  return (
-    <header className="bg-white border-b border-gray-200 py-4 px-6">
+const AdminTopbar: React.FC<AdminTopbarProps> = ({
+  title,
+  onMenuClick
+}) => {
+  return <header className="bg-white border-b border-gray-200 py-4 px-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
             <button className="lg:hidden mr-4 p-1" onClick={onMenuClick}>
@@ -34,7 +34,6 @@ const AdminTopbar: React.FC<AdminTopbarProps> = ({ title, onMenuClick }) => {
           </div>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
 export default AdminTopbar;

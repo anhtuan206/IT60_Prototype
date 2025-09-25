@@ -2,10 +2,8 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { User, Package, Calendar, Settings, LogOut } from 'lucide-react';
-
 const Account = () => {
-  return (
-    <div className="min-h-screen bg-gray-50 text-neutral-text flex flex-col">
+  return <div className="min-h-screen bg-gray-50 text-neutral-text flex flex-col">
       <Header />
       <main className="container mx-auto px-4 py-8 flex-grow">
         <h1 className="text-3xl font-bold mb-8 text-neutral-text">Tài Khoản Của Tôi</h1>
@@ -51,8 +49,7 @@ const Account = () => {
               <h2 className="text-xl font-bold mb-6 text-neutral-text">Đơn Hàng & Lịch Sử</h2>
               {/* Order Items */}
               <div className="space-y-4">
-                {[1, 2].map(order => (
-                  <div key={order} className="border border-gray-200 rounded-lg p-4">
+                {[1, 2].map(order => <div key={order} className="border border-gray-200 rounded-lg p-4">
                     <div className="flex justify-between items-start mb-3">
                       <div>
                         <span className="font-semibold text-neutral-text">Đơn Hàng #{order}12345</span>
@@ -74,8 +71,7 @@ const Account = () => {
                         </button>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
 
               {/* Upcoming Bookings */}
@@ -114,8 +110,6 @@ const Account = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Account;

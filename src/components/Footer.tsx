@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 const Footer = () => {
-  return (
-    <footer className="bg-accent-beige w-full py-12 mt-16 text-neutral-text">
+  return <footer className="bg-accent-beige w-full py-12 mt-16 text-neutral-text">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -42,7 +40,6 @@ const Footer = () => {
           <p>© 2025 Pet Hotel. Đã đăng ký bản quyền.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
 export default Footer;

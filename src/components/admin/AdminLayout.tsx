@@ -2,18 +2,21 @@ import React, { useState } from 'react';
 import AdminSidebar from './AdminSidebar';
 import AdminTopbar from './AdminTopbar';
 import AdminBreadcrumbs from './AdminBreadcrumbs';
-
 interface AdminLayoutProps {
   children: React.ReactNode;
   title: string;
-  breadcrumbs: Array<{ label: string; path?: string }>;
+  breadcrumbs: Array<{
+    label: string;
+    path?: string;
+  }>;
 }
-
-const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title, breadcrumbs }) => {
+const AdminLayout: React.FC<AdminLayoutProps> = ({
+  children,
+  title,
+  breadcrumbs
+}) => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-
-  return (
-    <div className="flex h-screen bg-white">
+  return <div className="flex h-screen bg-white">
       <AdminSidebar isOpen={isSidebarOpen} setOpen={setSidebarOpen} />
       <div className="flex-1 flex flex-col overflow-hidden">
         <AdminTopbar title={title} onMenuClick={() => setSidebarOpen(true)} />
@@ -24,7 +27,6 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title, breadcrumbs 
           {children}
         </main>
       </div>
-    </div>
-  );
+    </div>;
 };
 export default AdminLayout;

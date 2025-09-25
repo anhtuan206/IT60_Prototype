@@ -3,13 +3,10 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Eye, EyeOff, User } from 'lucide-react';
-
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  return (
-    <div className="min-h-screen bg-accent-beige flex flex-col">
+  return <div className="min-h-screen bg-accent-beige flex flex-col">
       <Header />
       <main className="container mx-auto px-4 py-12 flex-grow flex items-center justify-center">
         <div className="w-full max-w-md">
@@ -88,8 +85,6 @@ const Signup = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Signup;

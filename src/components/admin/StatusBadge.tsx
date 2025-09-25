@@ -3,7 +3,9 @@ type StatusType = 'active' | 'draft' | 'pending' | 'paid' | 'shipped' | 'cancell
 interface StatusBadgeProps {
   status: StatusType;
 }
-const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
+const StatusBadge: React.FC<StatusBadgeProps> = ({
+  status
+}) => {
   const getStatusStyles = (status: StatusType) => {
     switch (status) {
       case 'active':
