@@ -14,7 +14,7 @@ const AccordionItem = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   return <div className="border border-gray-200 rounded-md">
-      <button className="w-full flex justify-between items-center p-4 text-left font-medium text-neutral-text" onClick={() => setIsOpen(!isOpen)}>
+      <button className="w-full flex justify-between items-center p-4 text-left font-medium text-amber-800" onClick={() => setIsOpen(!isOpen)}>
         <span>{title}</span>
         <ChevronDown className={`h-5 w-5 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
@@ -32,16 +32,16 @@ const ServiceDetail = () => {
   const service = services.find(s => s.id === id); // Find the service by id
 
   if (!service) {
-    return <div className="min-h-screen bg-white text-neutral-text flex flex-col">
+    return <div className="min-h-screen bg-white text-amber-800 flex flex-col">
       <Header />
       <main className="container mx-auto px-4 py-8 flex-grow">
-        <h1 className="text-3xl font-bold mb-8 text-neutral-text">Dịch vụ không tìm thấy</h1>
+        <h1 className="text-3xl font-bold mb-8 text-amber-800">Dịch vụ không tìm thấy</h1>
         <p>Rất tiếc, dịch vụ bạn đang tìm kiếm không tồn tại.</p>
       </main>
       <Footer />
     </div>;
   }
-  return <div className="min-h-screen bg-white text-neutral-text flex flex-col">
+  return <div className="min-h-screen bg-white text-amber-800 flex flex-col">
       <Header />
       <main className="container mx-auto px-4 py-8 flex-grow">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -55,11 +55,11 @@ const ServiceDetail = () => {
             <h1 className="text-2xl md:text-4xl font-bold mb-2">{service.title}</h1>
             <p className="text-gray-500 mb-4">Loại hình: {service.type}</p>
             
-            <div className="text-3xl font-bold text-warm-gold mb-6">
+            <div className="text-3xl font-bold text-amber-500 mb-6">
               {service.price}
             </div>
 
-            <button className="bg-warm-gold text-white px-8 py-3 rounded-md w-full md:w-auto mb-8 hover:opacity-90 transition-opacity font-semibold">
+            <button className="bg-amber-500 text-white px-8 py-3 rounded-md w-full md:w-auto mb-8 hover:opacity-90 transition-opacity font-semibold">
               Đặt Lịch Ngay
             </button>
 

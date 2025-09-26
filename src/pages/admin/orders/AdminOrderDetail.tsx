@@ -84,7 +84,7 @@ const AdminOrderDetail = () => {
                     <option value="shipped">Đã gửi hàng</option>
                     <option value="cancelled">Đã hủy</option>
                 </select>
-                <button onClick={handleStatusUpdate} className="bg-primary-blue text-white px-4 py-2 rounded-md flex items-center hover:opacity-90">
+                <button onClick={handleStatusUpdate} className="bg-amber-700 text-white px-4 py-2 rounded-md flex items-center hover:opacity-90">
                     <Save size={16} className="mr-2" />
                     Cập nhật trạng thái
                 </button>

@@ -12,7 +12,7 @@ const ProductDetail = () => {
   }>();
   const product = products.find(p => p.id === id);
   if (!product) {
-    return <div className="min-h-screen bg-white text-neutral-text flex flex-col">
+    return <div className="min-h-screen bg-white text-amber-800 flex flex-col">
         <Header />
         <main className="container mx-auto px-4 py-8 flex-grow">
           <h1 className="text-3xl font-bold mb-8">Sản phẩm không tìm thấy</h1>
@@ -21,7 +21,7 @@ const ProductDetail = () => {
         <Footer />
       </div>;
   }
-  return <div className="min-h-screen bg-white text-neutral-text flex flex-col">
+  return <div className="min-h-screen bg-white text-amber-800 flex flex-col">
       <Header />
       <main className="container mx-auto px-4 py-8 flex-grow">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -35,11 +35,11 @@ const ProductDetail = () => {
             <h1 className="text-2xl md:text-4xl font-bold mb-2">{product.title}</h1>
             <p className="text-gray-500 mb-4">Danh mục: {product.category}</p>
             
-            <div className="text-3xl font-bold text-warm-gold mb-6">
+            <div className="text-3xl font-bold text-amber-500 mb-6">
               {product.price}
             </div>
 
-            <button className="flex items-center justify-center bg-warm-gold text-white px-8 py-3 rounded-md w-full md:w-auto mb-8 hover:opacity-90 transition-opacity">
+            <button className="flex items-center justify-center bg-amber-500 text-white px-8 py-3 rounded-md w-full md:w-auto mb-8 hover:opacity-90 transition-opacity">
               <ShoppingCart className="h-5 w-5 mr-2" />
               Thêm Vào Giỏ Hàng
             </button>

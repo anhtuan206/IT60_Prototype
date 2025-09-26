@@ -59,7 +59,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({
         <nav className="flex-1 overflow-y-auto py-4">
           <ul className="space-y-1">
             {menuItems.map((item, index) => <li key={index}>
-                <Link to={item.path} className="flex items-center px-4 py-3 text-neutral-text hover:bg-accent-beige rounded-md mx-2">
+                <Link to={item.path} className="flex items-center px-4 py-3 text-amber-800 hover:bg-orange-50 rounded-md mx-2">
                   <span className="mr-3">{item.icon}</span>
                   {item.label}
                 </Link>
@@ -67,7 +67,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({
           </ul>
         </nav>
         <div className="p-4 border-t border-gray-200">
-          <button className="flex items-center w-full px-4 py-3 text-neutral-text hover:bg-accent-beige rounded-md">
+          <button className="flex items-center w-full px-4 py-3 text-amber-800 hover:bg-orange-50 rounded-md">
             <LogOut size={20} className="mr-3" />
             Đăng Xuất
           </button>

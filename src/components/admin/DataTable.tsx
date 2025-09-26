@@ -30,12 +30,12 @@ const DataTable: React.FC<DataTableProps> = ({
       {actions && <div className="p-4 border-b border-gray-200">{actions}</div>}
       <div className="overflow-x-auto">
         <table className="w-full">
-          <thead className="bg-accent-beige">
+          <thead className="bg-orange-50">
             <tr>
               {selectable && <th className="px-4 py-3 text-left">
                   <input type="checkbox" onChange={onSelectAll} />
                 </th>}
-              {columns.map((column, index) => <th key={index} className="px-4 py-3 text-left font-medium text-neutral-text">
+              {columns.map((column, index) => <th key={index} className="px-4 py-3 text-left font-medium text-amber-800">
                   {column.header}
                 </th>)}
             </tr>
@@ -68,7 +68,7 @@ const DataTable: React.FC<DataTableProps> = ({
           <button className="p-1 border border-gray-300 rounded hover:bg-gray-100">
             <ChevronLeft size={16} />
           </button>
-          <span className="px-3 py-1 bg-primary-blue text-white rounded-md font-medium">1</span>
+          <span className="px-3 py-1 bg-amber-700 text-white rounded-md font-medium">1</span>
           <button className="p-1 border border-gray-300 rounded hover:bg-gray-100">
             <ChevronRight size={16} />
           </button>

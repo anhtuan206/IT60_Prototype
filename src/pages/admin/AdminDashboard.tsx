@@ -100,12 +100,12 @@ const AdminDashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
         {kpiData.map((kpi, index) => <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-medium text-neutral-text">{kpi.title}</h3>
+              <h3 className="font-medium text-amber-800">{kpi.title}</h3>
               <div className={`p-2 rounded-full ${statusColorMap[kpi.color]}`}>
                 <kpi.icon size={20} />
               </div>
             </div>
-            <p className="text-3xl font-bold text-neutral-text">{kpi.value}</p>
+            <p className="text-3xl font-bold text-amber-800">{kpi.value}</p>
             <p className="text-sm text-gray-500 mt-2">{kpi.change}</p>
           </div>)}
       </div>
@@ -115,26 +115,26 @@ const AdminDashboard = () => {
         <div className="lg:col-span-2">
           <div className="bg-white rounded-lg border border-gray-200 h-full shadow-sm">
             <div className="p-4 border-b border-gray-200 flex justify-between items-center">
-              <h2 className="font-medium text-neutral-text">Đơn Hàng Gần Đây</h2>
-              <Link to="/admin/orders" className="text-sm text-primary-blue hover:underline">
+              <h2 className="font-medium text-amber-800">Đơn Hàng Gần Đây</h2>
+              <Link to="/admin/orders" className="text-sm text-amber-700 hover:underline">
                 Xem tất cả
               </Link>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-accent-beige text-left">
+                <thead className="bg-orange-50 text-left">
                   <tr>
-                    <th className="px-4 py-3 text-sm font-medium text-neutral-text">Mã</th>
-                    <th className="px-4 py-3 text-sm font-medium text-neutral-text">Khách Hàng</th>
-                    <th className="px-4 py-3 text-sm font-medium text-neutral-text">Tổng</th>
-                    <th className="px-4 py-3 text-sm font-medium text-neutral-text">Trạng Thái</th>
+                    <th className="px-4 py-3 text-sm font-medium text-amber-800">Mã</th>
+                    <th className="px-4 py-3 text-sm font-medium text-amber-800">Khách Hàng</th>
+                    <th className="px-4 py-3 text-sm font-medium text-amber-800">Tổng</th>
+                    <th className="px-4 py-3 text-sm font-medium text-amber-800">Trạng Thái</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   {recentOrders.map(order => <tr key={order.id} className="hover:bg-gray-50">
-                      <td className="px-4 py-3 text-sm text-neutral-text">{order.id}</td>
-                      <td className="px-4 py-3 text-sm text-neutral-text">{order.customer}</td>
-                      <td className="px-4 py-3 text-sm text-neutral-text">{order.total}</td>
+                      <td className="px-4 py-3 text-sm text-amber-800">{order.id}</td>
+                      <td className="px-4 py-3 text-sm text-amber-800">{order.customer}</td>
+                      <td className="px-4 py-3 text-sm text-amber-800">{order.total}</td>
                       <td className="px-4 py-3 text-sm">
                         <span className={`inline-block px-2 py-1 text-xs rounded-full font-medium ${statusColorMap[order.statusColor]}`}>
                           {order.status}
@@ -151,15 +151,15 @@ const AdminDashboard = () => {
         <div className="lg:col-span-1">
           <div className="bg-white rounded-lg border border-gray-200 h-full shadow-sm">
             <div className="p-4 border-b border-gray-200 flex justify-between items-center">
-              <h2 className="font-medium text-neutral-text">Lịch Hẹn Hôm Nay</h2>
-              <Link to="/admin/appointments" className="text-sm text-primary-blue hover:underline">
+              <h2 className="font-medium text-amber-800">Lịch Hẹn Hôm Nay</h2>
+              <Link to="/admin/appointments" className="text-sm text-amber-700 hover:underline">
                 Xem tất cả
               </Link>
             </div>
             <div className="p-4">
               <div className="space-y-4">
                 {appointments.map((appt, index) => <div key={index} className={`border-l-4 pl-3 py-2 border-${appt.color}-500`}>
-                    <div className="text-sm font-medium text-neutral-text">
+                    <div className="text-sm font-medium text-amber-800">
                       {appt.time} - {appt.service}
                     </div>
                     <div className="text-xs text-gray-500">
@@ -174,10 +174,10 @@ const AdminDashboard = () => {
 
       {/* Quick Actions */}
       <div className="mt-6 flex flex-wrap gap-4">
-        <Link to="/admin/services/new" className="bg-primary-blue text-white px-4 py-2 rounded-md hover:opacity-90 transition-opacity flex items-center">
+        <Link to="/admin/services/new" className="bg-amber-700 text-white px-4 py-2 rounded-md hover:opacity-90 transition-opacity flex items-center">
           <Plus size={16} className="mr-2" /> Thêm Dịch Vụ Mới
         </Link>
-        <Link to="/admin/products/new" className="bg-primary-blue text-white px-4 py-2 rounded-md hover:opacity-90 transition-opacity flex items-center">
+        <Link to="/admin/products/new" className="bg-amber-700 text-white px-4 py-2 rounded-md hover:opacity-90 transition-opacity flex items-center">
           <Plus size={16} className="mr-2" /> Thêm Sản Phẩm Mới
         </Link>
       </div>

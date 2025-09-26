@@ -22,7 +22,7 @@ const Toast: React.FC<ToastProps> = ({
   return <div className={`shadow-lg rounded-md p-4 flex items-center justify-between max-w-md border-l-4 ${colorMap[type]}`}>
       <div className="flex items-center space-x-3">
         {iconMap[type]}
-        <p className="text-neutral-text">{message}</p>
+        <p className="text-amber-800">{message}</p>
       </div>
       <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
         <X size={18} />

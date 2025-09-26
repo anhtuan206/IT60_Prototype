@@ -49,7 +49,7 @@ const AdminUserDetail = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="md:col-span-1 flex flex-col items-center">
                 <img src="https://placehold.co/128x128?text=User" alt="User Avatar" className="w-32 h-32 rounded-full mb-4" />
-                <button type="button" className="text-sm text-primary-blue hover:underline">Thay đổi ảnh đại diện</button>
+                <button type="button" className="text-sm text-amber-700 hover:underline">Thay đổi ảnh đại diện</button>
             </div>
             <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -79,9 +79,9 @@ const AdminUserDetail = () => {
                             <div className="relative">
                                 <input type="checkbox" id="status-toggle" defaultChecked={userData.status === 'active'} className="sr-only" />
                                 <div className="block bg-gray-300 w-14 h-8 rounded-full"></div>
-                                <div className="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition-all duration-300 transform peer-checked:translate-x-6 peer-checked:bg-primary-blue"></div>
+                                <div className="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition-all duration-300 transform peer-checked:translate-x-6 peer-checked:bg-amber-700"></div>
                             </div>
-                            <div className="ml-3 text-neutral-text font-medium">
+                            <div className="ml-3 text-amber-800 font-medium">
                                 {userData.status === 'active' ? 'Hoạt động' : 'Vô hiệu hóa'}
                             </div>
                         </label>
@@ -102,7 +102,7 @@ const AdminUserDetail = () => {
             <X size={18} className="mr-2" />
             Hủy
           </Link>
-          <button type="submit" className="px-4 py-2 bg-primary-blue text-white rounded-md hover:opacity-90 flex items-center">
+          <button type="submit" className="px-4 py-2 bg-amber-700 text-white rounded-md hover:opacity-90 flex items-center">
             <Save size={18} className="mr-2" />
             Lưu thay đổi
           </button>

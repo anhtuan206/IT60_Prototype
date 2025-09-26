@@ -34,7 +34,7 @@ const AdminSettings = () => {
             <h3 className="font-medium mb-2">Vai trò</h3>
             <ul className="space-y-1">
               {roles.map(role => <li key={role.id}>
-                  <button onClick={() => setSelectedRole(role.id)} className={`w-full text-left px-3 py-2 rounded-md ${selectedRole === role.id ? 'bg-accent-beige font-semibold' : 'hover:bg-gray-50'}`}>
+                  <button onClick={() => setSelectedRole(role.id)} className={`w-full text-left px-3 py-2 rounded-md ${selectedRole === role.id ? 'bg-orange-50 font-semibold' : 'hover:bg-gray-50'}`}>
                     {role.name}
                   </button>
                 </li>)}
@@ -63,7 +63,7 @@ const AdminSettings = () => {
                   {modules.map(mod => <tr key={mod} className="border-b hover:bg-gray-50">
                       <td className="py-3 font-medium">{mod}</td>
                       {permissions.map(p => <td key={p} className="text-center py-3">
-                          <input type="checkbox" className="h-5 w-5 rounded border-gray-300 text-primary-blue focus:ring-primary-blue" />
+                          <input type="checkbox" className="h-5 w-5 rounded border-gray-300 text-amber-700 focus:ring-amber-700" />
                         </td>)}
                     </tr>)}
                 </tbody>
@@ -72,7 +72,7 @@ const AdminSettings = () => {
           </div>
         </div>
         <div className="mt-8 pt-4 border-t border-gray-200 flex justify-end">
-          <button onClick={handleSave} className="px-4 py-2 bg-primary-blue text-white rounded-md hover:opacity-90 flex items-center">
+          <button onClick={handleSave} className="px-4 py-2 bg-amber-700 text-white rounded-md hover:opacity-90 flex items-center">
             <Save size={18} className="mr-2" />
             Lưu thay đổi
           </button>

@@ -17,10 +17,10 @@ const Cart = () => {
     quantity: 2,
     image: 'https://fuwa.com.vn/wp-content/uploads/2024/02/xit-khu-mui-da-nang-31.jpg'
   }];
-  return <div className="min-h-screen bg-white text-neutral-text flex flex-col">
+  return <div className="min-h-screen bg-white text-amber-800 flex flex-col">
       <Header />
       <main className="container mx-auto px-4 py-8 flex-grow">
-        <h1 className="text-3xl font-bold mb-8 text-neutral-text">Giỏ Hàng Của Bạn</h1>
+        <h1 className="text-3xl font-bold mb-8 text-amber-800">Giỏ Hàng Của Bạn</h1>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Cart Items */}
           <div className="lg:col-span-2">
@@ -29,7 +29,7 @@ const Cart = () => {
                   <img src={item.image} alt={item.name} className="w-24 h-24 rounded-md object-cover" />
                   <div className="ml-4 flex-grow">
                     <div className="flex justify-between">
-                      <h3 className="font-medium text-neutral-text">{item.name}</h3>
+                      <h3 className="font-medium text-amber-800">{item.name}</h3>
                       <button className="text-gray-500 hover:text-red-600">
                         <Trash2 className="h-5 w-5" />
                       </button>
@@ -48,19 +48,19 @@ const Cart = () => {
                 </div>)}
             </div>
             <div className="mt-6">
-              <div className="bg-accent-beige p-4 rounded-md">
-                <h3 className="font-medium mb-2 text-neutral-text">Thêm mã giảm giá</h3>
+              <div className="bg-orange-50 p-4 rounded-md">
+                <h3 className="font-medium mb-2 text-amber-800">Thêm mã giảm giá</h3>
                 <div className="flex">
                   <input type="text" className="border border-gray-300 p-2 flex-grow rounded-l-md" placeholder="Nhập mã" />
-                  <button className="bg-warm-gold text-white p-2 px-4 rounded-r-md hover:opacity-90">Áp Dụng</button>
+                  <button className="bg-amber-500 text-white p-2 px-4 rounded-r-md hover:opacity-90">Áp Dụng</button>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right Column - Order Summary */}
-          <div className="bg-accent-beige p-6 rounded-md h-fit">
-            <h2 className="text-xl font-bold mb-6 text-neutral-text">Tổng Đơn Hàng</h2>
+          <div className="bg-orange-50 p-6 rounded-md h-fit">
+            <h2 className="text-xl font-bold mb-6 text-amber-800">Tổng Đơn Hàng</h2>
             <div className="space-y-3 mb-6 text-gray-700">
               <div className="flex justify-between">
                 <span>Tổng tiền hàng</span>
@@ -74,12 +74,12 @@ const Cart = () => {
                 <span>Thuế</span>
                 <span>50.000₫</span>
               </div>
-              <div className="border-t border-accent-tan pt-3 mt-3 flex justify-between font-bold text-neutral-text">
+              <div className="border-t border-orange-200 pt-3 mt-3 flex justify-between font-bold text-amber-800">
                 <span>Tổng cộng</span>
                 <span>580.000₫</span>
               </div>
             </div>
-            <button className="bg-warm-gold text-white w-full py-3 rounded-md font-semibold hover:opacity-90 transition-opacity">
+            <button className="bg-amber-500 text-white w-full py-3 rounded-md font-semibold hover:opacity-90 transition-opacity">
               Tiến Hành Thanh Toán
             </button>
             <p className="mt-6 text-xs text-gray-500 text-center">Bằng việc tiếp tục, bạn đồng ý với các điều khoản dịch vụ của chúng tôi.</p>

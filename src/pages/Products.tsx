@@ -112,16 +112,16 @@ const Products = () => {
   return <div className="min-h-screen bg-white flex flex-col">
       <Header />
       <main className="container mx-auto px-4 py-8 flex-grow">
-        <h1 className="text-3xl font-bold mb-8 text-neutral-text">Sản Phẩm Của Chúng Tôi</h1>
+        <h1 className="text-3xl font-bold mb-8 text-amber-800">Sản Phẩm Của Chúng Tôi</h1>
         {/* Filter/Search Bar */}
-        <div className="flex items-center mb-8 bg-accent-beige p-3 rounded-lg shadow-sm">
+        <div className="flex items-center mb-8 bg-orange-50 p-3 rounded-lg shadow-sm">
           <div className="flex items-center border-r border-gray-300 pr-4 mr-4">
-            <Filter className="h-5 w-5 mr-2 text-neutral-text" />
-            <span className="text-neutral-text">Lọc</span>
+            <Filter className="h-5 w-5 mr-2 text-amber-800" />
+            <span className="text-amber-800">Lọc</span>
           </div>
           <div className="flex-grow flex items-center">
-            <Search className="h-5 w-5 mr-2 text-neutral-text" />
-            <input type="text" placeholder="Tìm kiếm sản phẩm..." className="bg-transparent outline-none flex-grow text-neutral-text" />
+            <Search className="h-5 w-5 mr-2 text-amber-800" />
+            <input type="text" placeholder="Tìm kiếm sản phẩm..." className="bg-transparent outline-none flex-grow text-amber-800" />
           </div>
         </div>
         {/* Products Grid */}

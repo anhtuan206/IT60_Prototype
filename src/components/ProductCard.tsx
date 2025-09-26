@@ -19,11 +19,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </Link>
       <div className="p-4 flex flex-col flex-grow">
         <Link to={`/products/${id}`} className="flex-grow">
-          <h3 className="font-medium text-neutral-text mb-1 hover:text-warm-brown transition-colors">{title}</h3>
+          <h3 className="font-medium text-amber-800 mb-1 hover:text-amber-600 transition-colors">{title}</h3>
         </Link>
         <div className="flex justify-between items-center mt-4">
-          <p className="font-semibold text-neutral-text">{price}</p>
-          <button className="bg-warm-gold text-white px-3 py-1 rounded-md text-sm flex items-center hover:opacity-90 transition-opacity">
+          <p className="font-semibold text-amber-800">{price}</p>
+          <button className="bg-amber-500 text-white px-3 py-1 rounded-md text-sm flex items-center hover:opacity-90 transition-opacity">
             <ShoppingCart className="h-4 w-4 mr-1" />
             <span>Thêm</span>
           </button>

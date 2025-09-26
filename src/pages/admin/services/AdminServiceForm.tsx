@@ -110,7 +110,7 @@ const AdminServiceForm = () => {
             <X size={18} className="mr-2" />
             Hủy
           </Link>
-          <button type="submit" className="px-4 py-2 bg-primary-blue text-white rounded-md hover:opacity-90 flex items-center">
+          <button type="submit" className="px-4 py-2 bg-amber-700 text-white rounded-md hover:opacity-90 flex items-center">
             <Save size={18} className="mr-2" />
             Lưu
           </button>

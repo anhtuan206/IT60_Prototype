@@ -34,7 +34,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
           <button onClick={onClose} className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50">
             {cancelText}
           </button>
-          <button onClick={onConfirm} className="px-4 py-2 text-white bg-primary-blue rounded-md hover:opacity-90 transition-opacity">
+          <button onClick={onConfirm} className="px-4 py-2 text-white bg-amber-700 rounded-md hover:opacity-90 transition-opacity">
             {confirmText}
           </button>
         </div>

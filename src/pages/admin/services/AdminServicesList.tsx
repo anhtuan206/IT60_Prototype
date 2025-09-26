@@ -123,7 +123,7 @@ const AdminServicesList = () => {
         </select>
       </FilterBar>
       <div className="mb-4">
-        <Link to="/admin/services/new" className="inline-flex items-center bg-primary-blue text-white px-4 py-2 rounded-md hover:opacity-90">
+        <Link to="/admin/services/new" className="inline-flex items-center bg-amber-700 text-white px-4 py-2 rounded-md hover:opacity-90">
           <Plus size={16} className="mr-2" />
           Thêm Dịch Vụ
         </Link>
@@ -136,7 +136,7 @@ const AdminServicesList = () => {
           <button className="px-3 py-2 text-sm bg-red-500 text-white rounded-md hover:bg-red-600">
             Xóa đã chọn
           </button>
-          <button className="px-3 py-2 text-sm bg-primary-blue text-white rounded-md hover:opacity-90">
+          <button className="px-3 py-2 text-sm bg-amber-700 text-white rounded-md hover:opacity-90">
             Thay đổi trạng thái
           </button>
         </div>}

@@ -67,7 +67,7 @@ const AdminAppointmentDetail = () => {
                         <StatusBadge status={appointment.status} />
                     </div>
                     <div className="flex items-center space-x-2">
-                        <button onClick={() => handleAction('Lịch hẹn đã được xác nhận.')} className="bg-primary-blue text-white px-4 py-2 rounded-md flex items-center hover:opacity-90">
+                        <button onClick={() => handleAction('Lịch hẹn đã được xác nhận.')} className="bg-amber-700 text-white px-4 py-2 rounded-md flex items-center hover:opacity-90">
                             <Check size={16} className="mr-2" />
                             Xác nhận
                         </button>
@@ -104,7 +104,7 @@ const AdminAppointmentDetail = () => {
                     <textarea id="internal_notes" placeholder="Thêm ghi chú cho nhân viên..." className="w-full px-3 py-2 border border-gray-300 rounded-md h-24"></textarea>
                 </div>
                 <div className="mt-4 flex justify-end">
-                     <button onClick={() => handleAction('Ghi chú đã được lưu.')} className="bg-primary-blue text-white px-4 py-2 rounded-md flex items-center hover:opacity-90">
+                     <button onClick={() => handleAction('Ghi chú đã được lưu.')} className="bg-amber-700 text-white px-4 py-2 rounded-md flex items-center hover:opacity-90">
                         <Save size={16} className="mr-2" />
                         Lưu ghi chú
                     </button>

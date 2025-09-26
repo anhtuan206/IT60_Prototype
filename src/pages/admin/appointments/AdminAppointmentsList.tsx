@@ -123,7 +123,7 @@ const AdminAppointmentsList = () => {
           <button className="px-3 py-2 text-sm bg-red-500 text-white rounded-md hover:bg-red-600">
             Xóa đã chọn
           </button>
-          <button className="px-3 py-2 text-sm bg-primary-blue text-white rounded-md hover:opacity-90">
+          <button className="px-3 py-2 text-sm bg-amber-700 text-white rounded-md hover:opacity-90">
             Thay đổi trạng thái
           </button>
         </div>}
