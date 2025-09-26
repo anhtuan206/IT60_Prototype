@@ -67,10 +67,12 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({
           </ul>
         </nav>
         <div className="p-4 border-t border-gray-200">
+          <Link to="/admin/login">
           <button className="flex items-center w-full px-4 py-3 text-amber-800 hover:bg-orange-50 rounded-md">
             <LogOut size={20} className="mr-3" />
             Đăng Xuất
           </button>
+          </Link>
         </div>
       </div>
     </>;

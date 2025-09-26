@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-orange-200 mt-8 pt-6 text-sm text-center text-gray-500">
-          <p>© 2023 Pet Hotel. Đã đăng ký bản quyền.</p>
+          <Link to="/admin"><p>© 2023 Pet Hotel. Đã đăng ký bản quyền.</p></Link>
         </div>
       </div>
     </footer>;
