@@ -3,14 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCart, ChevronDown, Menu, X } from 'lucide-react';
 const Header = () => {
   const location = useLocation();
-  const isAccountOrCart = location.pathname === '/account' || location.pathname === '/cart' || location.pathname === '/orders' || location.pathname === '/bookings' || location.pathname === '/pets';
+  const isAccountOrCart = location.pathname === '/account' || location.pathname === '/cart' || location.pathname === '/orders' || location.pathname === '/pets';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const profileMenuRef = useRef<HTMLDivElement>(null);
   const navLinks = <>
       <Link to="/services" className="text-amber-800 hover:text-amber-600 transition-colors block md:inline-block py-2 md:py-0">Dịch Vụ</Link>
       <Link to="/products" className="text-amber-800 hover:text-amber-600 transition-colors block md:inline-block py-2 md:py-0">Sản Phẩm</Link>
-      <Link to="/booking" className="text-amber-800 hover:text-amber-600 transition-colors block md:inline-block py-2 md:py-0">Đặt Lịch</Link>
       <Link to="/contact" className="text-amber-800 hover:text-amber-600 transition-colors block md:inline-block py-2 md:py-0">Liên Hệ</Link>
     </>;
   useEffect(() => {
@@ -53,7 +52,6 @@ const Header = () => {
                   <div className="py-1">
                     <Link to="/account" className="block px-4 py-2 text-amber-800 hover:bg-orange-50" onClick={() => setIsProfileMenuOpen(false)}>Tài khoản của tôi</Link>
                     <Link to="/orders" className="block px-4 py-2 text-amber-800 hover:bg-orange-50" onClick={() => setIsProfileMenuOpen(false)}>Đơn hàng</Link>
-                    <Link to="/bookings" className="block px-4 py-2 text-amber-800 hover:bg-orange-50" onClick={() => setIsProfileMenuOpen(false)}>Lịch hẹn</Link>
                     <Link to="/pets" className="block px-4 py-2 text-amber-800 hover:bg-orange-50" onClick={() => setIsProfileMenuOpen(false)}>Thú cưng của tôi</Link>
                   </div>
                   <div className="py-1 border-t border-gray-200">

@@ -22,7 +22,7 @@ const Home = () => {
           <p className="max-w-2xl text-lg md:text-xl mb-8">
             Trải nghiệm dịch vụ khách sạn thú cưng cao cấp, nơi những người bạn bốn chân được quan tâm như ở nhà.
           </p>
-          <Link to="/booking" className="bg-amber-500 text-white px-8 py-3 rounded-md font-semibold text-lg hover:opacity-90 transition-opacity">
+          <Link to="/services" className="bg-amber-500 text-white px-8 py-3 rounded-md font-semibold text-lg hover:opacity-90 transition-opacity">
             Đặt Lịch Ngay
           </Link>
         </div>

@@ -5,6 +5,7 @@ import DataTable from '../../../components/admin/DataTable';
 import FilterBar from '../../../components/admin/FilterBar';
 import StatusBadge from '../../../components/admin/StatusBadge';
 import { Eye } from 'lucide-react';
+import { services } from '../../Services';
 const AdminAppointmentsList = () => {
   const breadcrumbs = [{
     label: 'Trang chủ',
@@ -15,40 +16,40 @@ const AdminAppointmentsList = () => {
   }];
   const [selectedRows, setSelectedRows] = useState<any[]>([]);
 
-  // Mock data based on README
+  // Mock appointments using real service data
   const appointments = [{
     id: '#A-056',
     customer: 'Trần Thị Bích',
     pet: 'Milo',
-    service: 'Cắt tỉa lông',
+    service: services[1].title, // Spa & Grooming
     datetime: '28/09/2025 14:00',
     status: 'confirmed'
   }, {
     id: '#A-055',
     customer: 'Nguyễn Văn An',
     pet: 'KiKi',
-    service: 'Lưu trú cao cấp',
+    service: services[0].title, // Lưu trú
     datetime: '27/09/2025 10:00',
     status: 'requested'
   }, {
     id: '#A-054',
     customer: 'Lê Hoàng',
     pet: 'Heo',
-    service: 'Tắm và vệ sinh',
+    service: services[1].title, // Spa & Grooming
     datetime: '26/09/2025 16:30',
     status: 'cancelled'
   }, {
     id: '#A-053',
     customer: 'Phạm Minh',
     pet: 'Bông',
-    service: 'Dịch vụ spa',
+    service: services[3].title, // Y tế cơ bản & Cấp cứu
     datetime: '26/09/2025 11:00',
     status: 'confirmed'
   }, {
     id: '#A-052',
     customer: 'Vũ Thị Lan',
     pet: 'Gấu',
-    service: 'Lưu trú cao cấp',
+    service: services[0].title, // Lưu trú
     datetime: '25/09/2025 18:00',
     status: 'completed'
   }];

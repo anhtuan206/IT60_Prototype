@@ -47,7 +47,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({
       <div className={`fixed inset-0 bg-black bg-opacity-30 z-30 lg:hidden transition-opacity ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} onClick={() => setOpen(false)}></div>
 
       <div className={`fixed lg:static top-0 left-0 w-64 h-full bg-white border-r border-gray-200 flex flex-col z-40 transform transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
-        <div className="p-4 border-b border-gray-200 flex justify-between items-center">
+        <div className="p-4 border-b border-gray-200 flex justify-between items-center" style={{ paddingBottom: '10px' }}>
           <div>
             <h1 className="text-xl font-bold">PET HOTEL</h1>
             <p className="text-sm text-gray-500">Admin</p>

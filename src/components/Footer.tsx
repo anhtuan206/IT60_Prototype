@@ -16,7 +16,6 @@ const Footer = () => {
               <li><Link to="/" className="hover:text-amber-600">Trang Chủ</Link></li>
               <li><Link to="/services" className="hover:text-amber-600">Dịch Vụ</Link></li>
               <li><Link to="/products" className="hover:text-amber-600">Sản Phẩm</Link></li>
-              <li><Link to="/booking" className="hover:text-amber-600">Đặt Lịch</Link></li>
             </ul>
           </div>
           <div>
@@ -37,7 +36,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-orange-200 mt-8 pt-6 text-sm text-center text-gray-500">
-          <p>© 2025 Pet Hotel. Đã đăng ký bản quyền.</p>
+          <p>© 2023 Pet Hotel. Đã đăng ký bản quyền.</p>
         </div>
       </div>
     </footer>;

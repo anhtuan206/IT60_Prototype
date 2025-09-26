@@ -4,6 +4,7 @@ import AdminLayout from '../../../components/admin/AdminLayout';
 import Toast from '../../../components/admin/Toast';
 import StatusBadge from '../../../components/admin/StatusBadge';
 import { ChevronLeft, Save, Check, X } from 'lucide-react';
+import { services } from '../../Services';
 const AdminAppointmentDetail = () => {
   const {
     id
@@ -22,7 +23,8 @@ const AdminAppointmentDetail = () => {
     label: `Chi tiết lịch hẹn #A-${id}`
   }];
 
-  // Mock data
+  // Mock appointment data using real services
+  const selectedService = services[0]; // Using the hotel service
   const appointment = {
     id: `#A-${id}`,
     status: 'requested',
@@ -35,15 +37,22 @@ const AdminAppointmentDetail = () => {
       name: 'KiKi',
       type: 'Chó Poodle',
       age: '2 tuổi',
-      gender: 'Cái'
+      gender: 'Cái',
+      weight: '8kg',
+      specialNeeds: 'Cần chăm sóc đặc biệt do tuổi còn nhỏ'
     },
     service: {
-      name: 'Lưu trú cao cấp',
-      price: '350.000₫'
+      name: selectedService.title,
+      price: selectedService.price,
+      description: selectedService.description,
+      duration: selectedService.description.duration,
+      includes: selectedService.description.includes,
+      requirements: selectedService.description.requirements
     },
     datetime: '27/09/2025 10:00',
+    checkOut: '30/09/2025 10:00', // For hotel services
     staff: 'unassigned',
-    notes: 'Khách hàng yêu cầu phòng có cửa sổ.'
+    notes: 'Khách hàng yêu cầu phòng có cửa sổ và khu vực yên tĩnh. Thú cưng không thích tiếng ồn.'
   };
   const handleAction = (message: string) => {
     setToastMessage(message);
@@ -81,10 +90,14 @@ const AdminAppointmentDetail = () => {
                     <div>
                         <p className="text-sm text-gray-500">Dịch vụ</p>
                         <p className="font-medium">{appointment.service.name}</p>
+                        <p className="text-sm text-amber-600 font-medium">{appointment.service.price}</p>
                     </div>
                     <div>
                         <p className="text-sm text-gray-500">Ngày & Giờ</p>
                         <p className="font-medium">{appointment.datetime}</p>
+                        {appointment.checkOut && (
+                          <p className="text-sm text-gray-600">Ngày trả: {appointment.checkOut}</p>
+                        )}
                     </div>
                     <div>
                         <label htmlFor="staff" className="text-sm text-gray-500">Nhân viên phụ trách</label>
@@ -94,9 +107,28 @@ const AdminAppointmentDetail = () => {
                             <option value="staff2">Trần Văn D</option>
                         </select>
                     </div>
-                    <div>
+                    <div className="md:col-span-2">
                         <label htmlFor="notes" className="text-sm text-gray-500">Ghi chú của khách</label>
                         <p className="font-medium mt-1">{appointment.notes || 'Không có'}</p>
+                    </div>
+                </div>
+
+                {/* Service Details Section */}
+                <div className="mt-6 pt-6 border-t">
+                    <h3 className="text-md font-semibold mb-4">Chi tiết dịch vụ</h3>
+                    <div className="space-y-3">
+                        <div>
+                            <p className="text-sm text-gray-500">Bao gồm</p>
+                            <p className="text-sm">{appointment.service.includes}</p>
+                        </div>
+                        <div>
+                            <p className="text-sm text-gray-500">Thời gian thực hiện</p>
+                            <p className="text-sm">{appointment.service.duration}</p>
+                        </div>
+                        <div>
+                            <p className="text-sm text-gray-500">Yêu cầu đối với thú cưng</p>
+                            <p className="text-sm">{appointment.service.requirements}</p>
+                        </div>
                     </div>
                 </div>
                  <div className="mt-6 pt-6 border-t">
@@ -125,6 +157,13 @@ const AdminAppointmentDetail = () => {
                 <p className="text-sm text-gray-600">Loại: {appointment.pet.type}</p>
                 <p className="text-sm text-gray-600">Tuổi: {appointment.pet.age}</p>
                 <p className="text-sm text-gray-600">Giới tính: {appointment.pet.gender}</p>
+                <p className="text-sm text-gray-600">Cân nặng: {appointment.pet.weight}</p>
+                {appointment.pet.specialNeeds && (
+                    <div className="mt-3 pt-3 border-t border-gray-100">
+                        <p className="text-sm text-gray-500">Chăm sóc đặc biệt</p>
+                        <p className="text-sm text-amber-600">{appointment.pet.specialNeeds}</p>
+                    </div>
+                )}
             </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ChevronDown } from 'lucide-react';
@@ -29,6 +29,7 @@ const ServiceDetail = () => {
   } = useParams<{
     id: string;
   }>();
+  const navigate = useNavigate();
   const service = services.find(s => s.id === id); // Find the service by id
 
   if (!service) {
@@ -59,7 +60,10 @@ const ServiceDetail = () => {
               {service.price}
             </div>
 
-            <button className="bg-amber-500 text-white px-8 py-3 rounded-md w-full md:w-auto mb-8 hover:opacity-90 transition-opacity font-semibold">
+            <button
+              onClick={() => navigate(`/services/${id}/booking`)}
+              className="bg-amber-500 text-white px-8 py-3 rounded-md w-full md:w-auto mb-8 hover:opacity-90 transition-opacity font-semibold"
+            >
               Đặt Lịch Ngay
             </button>
 

@@ -1,8 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Trash2, Plus, Minus } from 'lucide-react';
 const Cart = () => {
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate('/cart/payment');
+  };
   // Mock cart items
   const cartItems = [{
     id: 1,
@@ -79,7 +85,10 @@ const Cart = () => {
                 <span>580.000₫</span>
               </div>
             </div>
-            <button className="bg-amber-500 text-white w-full py-3 rounded-md font-semibold hover:opacity-90 transition-opacity">
+            <button
+              onClick={handleCheckout}
+              className="bg-amber-500 text-white w-full py-3 rounded-md font-semibold hover:opacity-90 transition-opacity"
+            >
               Tiến Hành Thanh Toán
             </button>
             <p className="mt-6 text-xs text-gray-500 text-center">Bằng việc tiếp tục, bạn đồng ý với các điều khoản dịch vụ của chúng tôi.</p>

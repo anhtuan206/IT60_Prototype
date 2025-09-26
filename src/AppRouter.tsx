@@ -3,10 +3,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
+import ServiceBooking from './pages/ServiceBooking';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
-import Booking from './pages/Booking';
+import BookingReview from './pages/BookingReview';
+import BookingPayment from './pages/BookingPayment';
 import Cart from './pages/Cart';
+import CartPayment from './pages/CartPayment';
 import Account from './pages/Account';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -32,10 +35,13 @@ export function AppRouter() {
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/:id" element={<ServiceDetail />} />
+        <Route path="/services/:id/booking" element={<ServiceBooking />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetail />} />
-        <Route path="/booking" element={<Booking />} />
+        <Route path="/services/:id/booking/review" element={<BookingReview />} />
+        <Route path="/services/:id/booking/payment" element={<BookingPayment />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/cart/payment" element={<CartPayment />} />
         <Route path="/account" element={<Account />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
