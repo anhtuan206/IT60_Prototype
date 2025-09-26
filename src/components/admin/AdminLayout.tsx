@@ -23,7 +23,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({
         <div className="px-6 py-3 border-b border-gray-200">
           <AdminBreadcrumbs items={breadcrumbs} />
         </div>
-        <main className="flex-1 overflow-auto bg-orange-50 p-6">
+        <main className="flex-1 overflow-auto p-6">
           {children}
         </main>
       </div>
