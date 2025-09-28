@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+schema_description_vi.md
+schema_description.md
+schema.md
+schema.sql
